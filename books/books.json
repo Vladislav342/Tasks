@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "year": 1988
+  },
+  {
+    "id": 2,
+    "title": "The Prophet",
+    "author": "Kahler Gibran",
+    "year": 1923
+  },
+  {
+    "id": 3,
+    "title": "Greta Garbo in Anna Karenina",
+    "author": "Anna Karenina",
+    "year": 1963
+  },
+  {
+    "id": 4,
+    "title": "To Kill a Mockingbird",
+    "author": "Anna Karenina",
+    "year": 1929
+  },
+  {
+    "id": 5,
+    "title": "The Great Gatsby",
+    "author": "Anna Karenina",
+    "year": 1974
+  },
+  {
+    "id": 6,
+    "title": "Hello",
+    "author": "Robbinson",
+    "year": 2022
+  },
+  {
+    "id": 7,
+    "title": "Hello",
+    "author": "Robbinson",
+    "year": 2022
+  },
+  {
+    "id": 7,
+    "title": "Hello",
+    "author": "Robbinson",
+    "year": 2022
+  }
+]
