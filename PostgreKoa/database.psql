@@ -1,0 +1,14 @@
+CREATE TABLE library(
+	id SERIAL PRIMARY KEY,
+	author VARCHAR(255),
+	title VARCHAR(255),
+	year INTEGER
+);
+
+INSERT INTO library (author, title, year) VALUES ('Paulo Coelho', 'The Simsons', 1900); 
+
+/*{
+    "title": "The Simsons2",
+    "author": "Paulo Coelho2",
+    "year": 1980
+}*/
