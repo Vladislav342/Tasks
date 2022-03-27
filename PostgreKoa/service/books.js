@@ -9,20 +9,28 @@ class BooksController{
 
 	async getBooks(ctx){
 		let books = await db.query(`SELECT * FROM library`);
-		console.log(JSON.stringify(books));
-		ctx.body = "ready";
+		console.log(books.rows);
+		ctx.body = books.rows;
 	}
 
-	async addBook(ctx){
-
+	async getOneBook(ctx){
+		let id = ctx.params.id;
+		const book = await db.query(`SELECT * FROM library where id  = $1`, [id]);
+		ctx.body = book.rows;
 	}
 
 	async updateBook(ctx){
-
+		const {id, author, title, year} = ctx.request.body;
+		const book = await db.query(`UPDATE library set author = $1, title = $2, year = $3 where id = $4 RETURNING *`,
+			[author, title, year, id]);
+		ctx.body = book.rows;
 	}
 
 	async deleteBook(ctx){
-
+		const id = ctx.params.id;
+		console.log(id);
+		const book = await db.query(`DELETE FROM library where id = $1`, [id]);
+		ctx.body = `The book's number - ${id} - is deleted`;
 	}
 }
 
