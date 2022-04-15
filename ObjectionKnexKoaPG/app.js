@@ -19,18 +19,37 @@ app.use(router.allowedMethods());
 
 router.get('/api/books', async (ctx) => {
 	const books = await Books.query();
-
-	console.log(books);
+	//console.log(books);
 	ctx.body = "<pre>"+JSON.stringify(books, null, 2)+"</pre>";
 })
 
-router.get('/api/books/:id', async (ctx) => {
+router.get('/api/book/:id', async (ctx) => {
 	let id = ctx.params.id;
-	console.log(id);
+	//console.log(id);
 	const book = await Books.query().findById(id);
 	//console.log(book);
 	ctx.body = "<pre>"+JSON.stringify(book, null, 2)+"</pre>";
 });
+
+router.post('/api/books', async (ctx) => {
+	let {id, author, title, year} = ctx.request.body;
+	let newBook = await Books.query().insert({id, author, title, year}).returning('id');
+	ctx.body = newBook;
+});
+
+router.delete('/api/book/:id', async (ctx) => {
+	const id = ctx.params.id;
+	let book = await Books.query().findById(id).del();
+	ctx.body = 'the book is deleted';
+});
+
+router.put('/api/book/:id', async (ctx) => {
+	const i_d = ctx.params.id;
+	let {id, author, title, year} = ctx.request.body;
+	let book = await Books.query().findById(i_d).update({id, author, title, year});
+	console.log(book);
+	ctx.body = 'hello';
+})
 
 app.use(async (ctx) => {
 	ctx.body = '<h1 style="text-align:center">The library of books</h1>';
