@@ -1,8 +1,9 @@
 import React from 'react';
-import CProfileRendering from "./Header";
+import ProfileRendering from "./ProfileRendering";
 import { Navigate } from "react-router-dom";
 import { setUserData } from "../actions/actionSetUserData";
 import { setError } from "../actions/actionError";
+import { logOut } from '../actions/actionLogout';
 import CAuth from "./Auth";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -54,7 +55,7 @@ class Profile extends React.Component{
 			</div>
 			) : (
 			<div>
-				<CProfileRendering {...this.props} />
+				<ProfileRendering {...this.props} />
 			</div>
 		);
 	}
@@ -65,5 +66,5 @@ const mapStateToProps = (state) => ({
 	id: state?.auth?.id
 }); 
 
-const CProfile = connect(mapStateToProps, {setUserData, setError})(Profile);
+const CProfile = connect(mapStateToProps, {setUserData, setError, onLogout: logOut})(Profile);
 export default CProfile;

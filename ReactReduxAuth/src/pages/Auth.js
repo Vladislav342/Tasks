@@ -69,6 +69,7 @@ let Auth = ({something}) =>  {
             <div className="form">
                 <input value={name} style={{backgroundColor: name.length>0 ? 'green' : 'red'}}  onChange={e => setName(e.target.value)} type="text" placeholder="login"/>
                 <input value={pass} style={{backgroundColor: pass.length>0 ? 'green' : 'red'}}  onChange={e => setPass(e.target.value)} placeholder='password'/>
+                <button onClick={()=>alert("Выберите другой логин")}>Click</button>
                 <button onClick={() => {  sendMessage(); setSec(1); }}  disabled={(name.length!==0 && pass.length!==0)?false:true}>Зарегистрироваться</button>
                 <button><a href="/login">Login</a></button>
             </div>
